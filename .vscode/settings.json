@@ -19,5 +19,8 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#3b2e2a99",
     "titleBar.inactiveForeground": "#e7e7e799"
-  }
+  },
+  "rust-analyzer.linkedProjects": [
+    "./Cargo.toml"
+  ]
 }
