@@ -5,6 +5,20 @@ use surrealdb::sql::Thing;
 use super::model::{ConnectionData, DBConnection, CRUD};
 use crate::prelude::Error;
 
+/// User Struct
+/// 
+/// ## Fields
+/// ```
+/// ID is the user's unique identifier
+/// CID is the user's unique identifier
+/// Name is the user's name
+/// Avatar is the user's avatar
+/// Email is the user's email
+/// Password is the user's password
+/// CreationDate is the user's creation date
+/// IsVisible is the user's visibility
+/// IsInactive is the user's inactivitys
+/// ```
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct User {
     pub id: Thing,
@@ -18,6 +32,19 @@ pub struct User {
     pub is_inactive: bool,
 }
 
+/// User Create Struct
+/// 
+/// ## Fields
+/// ```
+/// CID is the user's unique identifier
+/// Name is the user's name
+/// Avatar is the user's avatar
+/// Email is the user's email
+/// Password is the user's password
+/// CreationDate is the user's creation date
+/// IsVisible is the user's visibility
+/// IsInactive is the user's inactivitys
+/// ```
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct UserCreate {
     pub cid: String,
@@ -32,6 +59,15 @@ pub struct UserCreate {
 
 #[async_trait::async_trait]
 impl CRUD<User, UserCreate> for User {
+    /// Initialize the user table
+    /// 
+    /// ## Arguments
+    /// ```
+    /// db is the database connection
+    /// ```
+    /// 
+    /// ## Returns
+    /// Initializes the user table with the given databases
     async fn init_table(db: DBConnection) -> Result<(), Error> {
         let sql = "DEFINE TABLE users SCHEMAFULL;\
                 DEFINE FIELD email ON users TYPE string ASSERT is::email($value);\
