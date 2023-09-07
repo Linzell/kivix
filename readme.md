@@ -39,3 +39,16 @@ thiserror = "1.0.38"
 tokio = { version = "1.28.2", features = ["fs"]}
 uuid = { version = "1.3.3", features = ["v4"] }
 ```
+
+## Command
+
+### Start SurrealDB
+
+```bash
+surreal start --user ${username} --password ${password}
+```
+
+#### Arguments
+
+- `--user` - SurrealDB username
+- `--password` - SurrealDB password

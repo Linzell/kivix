@@ -47,7 +47,7 @@ async fn main() -> io::Result<()> {
         env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
     }
 
-    // let config = load_rustls_config();
+    let config = load_rustls_config();
 
     let surreal = match SurrealDBRepo::init().await {
         Ok(surreal) => {
@@ -148,13 +148,12 @@ async fn main() -> io::Result<()> {
 
         app
     })
-    .bind(format!("0.0.0.0:{port}"))?
-    // .bind_rustls(format!("0.0.0.0:{port}"), config)?
+    .bind_rustls(format!("0.0.0.0:{port}"), config)?
     .run()
     .await
 }
 
-fn load_rustls_config() -> rustls::ServerConfig {
+fn load_rustls_config() -> ServerConfig {
     let config = ServerConfig::builder()
         .with_safe_defaults()
         .with_no_client_auth();
