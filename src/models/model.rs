@@ -14,9 +14,36 @@ where
     D: Serialize + Send + Sync + for<'de> Deserialize<'de> + 'static,
     C: Serialize + Send + Sync + for<'de> Deserialize<'de> + 'static,
 {
+    /// Initialize the table
+    /// 
+    /// # Arguments
+    /// 
+    /// * `db` - The database connection
+    /// 
+    /// # Returns
+    /// 
+    /// * `Result<(), Error>` - The result of the operation
+    /// 
+    /// # Errors
+    /// 
+    /// * `Error` - The error returned by the database
     async fn init_table(db: DBConnection) -> Result<(), Error>;
 
-
+    /// Create a new entry in the table
+    /// 
+    /// # Arguments
+    /// 
+    /// * `db` - The database connection
+    /// * `tb` - The table name
+    /// * `data` - The data to insert
+    /// 
+    /// # Returns
+    /// 
+    /// * `Result<D, Error>` - The result of the operation
+    /// 
+    /// # Errors
+    /// 
+    /// * `Error` - The error returned by the database
     async fn create(db: ConnectionData, tb: String, data: C) -> Result<D, Error> {
         let res: D = db.create(tb).content(data).await?;
 
