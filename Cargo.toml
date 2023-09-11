@@ -16,7 +16,7 @@ actix-governor = { git = "https://github.com/AaronErhardt/actix-governor", featu
 actix-identity = "0.5.2"
 actix-session = { version = "0.7.2", features = ["cookie-session"] } 
 actix-session-surrealdb = "0.1.3"
-actix-web = { version = "4.2.1", features = ["rustls"] }
+actix-web = { version = "4.4.0", features = ["rustls"] }
 chrono = "0.4.24"
 dotenv = "0.15.0"
 env_logger = "0.10.0"
