@@ -11,6 +11,9 @@ else
 fi
 
 # Generate the certificate authority (CA)
+# If not found cert.pem
+if [[ -f ca.pem ]]; them
+else
 openssl req -x509 -nodes  \
   -newkey rsa:4096  \
   -days 365  \
@@ -18,6 +21,7 @@ openssl req -x509 -nodes  \
   -out ca.pem  \
   -keyout ca.key  \
   -sha256
+fi
 
 # Generate the client certificate
 openssl req -nodes   \
@@ -40,7 +44,10 @@ subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid,issuer
 keyUsage = digitalSignature, keyEncipherment
 extendedKeyUsage = serverAuth
-subjectAltName = DNS:$SERVER:${PORT}
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = $SERVER:${PORT}
+DNS.2 = *.$SERVER:${PORT}
 END
     )
 
