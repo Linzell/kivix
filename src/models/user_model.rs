@@ -66,6 +66,12 @@ impl CRUD<User, UserCreate> for User {
     /// db is the database connection
     /// ```
     /// 
+    /// ## Filters
+    /// ```
+    /// email is the user's email
+    /// cid is the user's unique identifier
+    /// ```
+    /// 
     /// ## Returns
     /// Initializes the user table with the given databases
     async fn init_table(db: DBConnection) -> Result<(), Error> {
