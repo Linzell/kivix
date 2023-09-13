@@ -4,9 +4,18 @@ use surrealdb::{engine::remote::ws::Client, sql::Thing, Surreal};
 
 use crate::prelude::Error;
 
+/// Database Connection
+///
+/// ## Type Alias
+/// 
+/// * `Surreal<Client>` - The database connection
 pub type DBConnection = Surreal<Client>;
+/// Database Connection Data
+/// 
+/// ## Type Alias
+/// 
+/// * `actix_web::web::Data<DBConnection>` - The database connection data
 pub type ConnectionData = actix_web::web::Data<DBConnection>;
-
 
 /// CRUD Trait
 /// 

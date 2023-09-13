@@ -8,17 +8,16 @@ use crate::prelude::Error;
 /// User Struct
 /// 
 /// ## Fields
-/// ```
-/// ID is the user's unique identifier
-/// CID is the user's unique identifier
-/// Name is the user's name
-/// Avatar is the user's avatar
-/// Email is the user's email
-/// Password is the user's password
-/// CreationDate is the user's creation date
-/// IsVisible is the user's visibility
-/// IsInactive is the user's inactivitys
-/// ```
+/// 
+/// * `ID` is the user's unique identifier
+/// * `CID` is the user's unique identifier
+/// * `Name` is the user's name
+/// * `Avatar` is the user's avatar
+/// * `Email` is the user's email
+/// * `Password` is the user's password
+/// * `CreationDate` is the user's creation date
+/// * `IsVisible` is the user's visibility
+/// * `IsInactive` is the user's inactivitys
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct User {
     pub id: Thing,
@@ -35,16 +34,15 @@ pub struct User {
 /// User Create Struct
 /// 
 /// ## Fields
-/// ```
-/// CID is the user's unique identifier
-/// Name is the user's name
-/// Avatar is the user's avatar
-/// Email is the user's email
-/// Password is the user's password
-/// CreationDate is the user's creation date
-/// IsVisible is the user's visibility
-/// IsInactive is the user's inactivitys
-/// ```
+/// 
+/// * `CID` is the user's unique identifier
+/// * `Name` is the user's name
+/// * `Avatar` is the user's avatar
+/// * `Email` is the user's email
+/// * `Password` is the user's password
+/// * `CreationDate` is the user's creation date
+/// * `IsVisible` is the user's visibility
+/// * `IsInactive` is the user's inactivitys
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct UserCreate {
     pub cid: String,
