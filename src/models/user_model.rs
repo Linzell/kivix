@@ -153,13 +153,12 @@ impl User {
     /// ## Returns
     ///
     /// * `Result<(), argon2::password_hash::Error>` - The result of the operation
-    /// 
+    ///
     /// ## Errors
-    /// 
+    ///
     /// * `argon2::password_hash::Error` - The error returned by the password hashing library
     pub fn verify_password(&self, password: String) -> Result<(), argon2::password_hash::Error> {
         let argon2 = Argon2::default();
-
         let hash = PasswordHash::new(&self.password_hash)?;
 
         argon2.verify_password(password.as_bytes(), &hash)
