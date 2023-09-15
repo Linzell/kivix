@@ -19,7 +19,6 @@ pub enum Error {
 }
 
 impl ResponseError for Error {
-
     fn error_response(&self) -> HttpResponse<actix_web::body::BoxBody> {
         let code = self.status_code();
         match code {

@@ -41,6 +41,11 @@ impl KeyExtractor for NginxIpKeyExctrator {
 
     type KeyExtractionError = SimpleKeyExtractionError<&'static str>;
 
+    /// Returns the name of the key
+    /// 
+    /// ## Returns
+    /// 
+    /// Returns the name of the key
     fn name(&self) -> &'static str {
         "Proxy IP"
     }
