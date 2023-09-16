@@ -61,15 +61,7 @@ impl CRUD<User, UserCreate> for User {
     /// Initialize the user table
     ///
     /// ## Arguments
-    /// ```
-    /// db is the database connection
-    /// ```
-    ///
-    /// ## Filters
-    /// ```
-    /// email is the user's email
-    /// peer_id is the user's unique identifier
-    /// ```
+    /// `db` is the database connection
     ///
     /// ## Returns
     /// Initializes the user table with the given databases
